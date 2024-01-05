@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mtk="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="AudioPlayerTest.MainPage">
+
+    <ScrollView>
+        <StackLayout>
+            <mtk:MediaElement x:Name="AudioFilePlayer2" MediaFailed="OnPlaybackFailed" Source="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" ShouldAutoPlay="False" ShouldShowPlaybackControls="True" IsVisible="True" HeightRequest="300" WidthRequest="300" />
+            <mtk:MediaElement x:Name="AudioFilePlayer3" MediaFailed="OnPlaybackFailed" Source="embed://ukelele.mp3" ShouldAutoPlay="False" ShouldShowPlaybackControls="True" IsVisible="True"  HeightRequest="200" WidthRequest="300" />
+            <mtk:MediaElement x:Name="AudioFilePlayer4" MediaFailed="OnPlaybackFailed" Source="embed://beep_beep.wav" ShouldAutoPlay="False" ShouldShowPlaybackControls="True" IsVisible="True"  HeightRequest="200" WidthRequest="300" />
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Button
+                Clicked="RecordAudio"
+                Text="Record" />
+
+                <Button
+                Clicked="StopAudio"
+                Text="Stop" />
+
+                <Button
+                Clicked="PlayAudio"
+                Text="Play" />
+
+                <Button
+                Clicked="ShowFiles"
+                Text="Audio Files" />
+
+                <Button
+                Clicked="ShowLogFiles"
+                Text="Log Files" />
+            </HorizontalStackLayout>
+
+            <ScrollView VerticalOptions="FillAndExpand" Margin="0,0,0,10">
+            <ListView x:Name="LogFilesList" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding}"  />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
+
